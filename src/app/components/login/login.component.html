@@ -9,6 +9,7 @@
             *Please enter your name
         </div>
       </div>
+      
   </fieldset>
  
   <div class="form-group">
@@ -18,7 +19,12 @@
         *Please enter your name
     </div>
   </div>
+ 
+
  {{myform.value|json}}
+  
+
+
 <div class="col-12">
     <div class="d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-outline-primary" type="button"><i class="bi bi-envelope-fill"></i>Continue with gmail</button>
@@ -26,8 +32,9 @@
       </div>
 </div>
 <div class="col-12">
-  <button type="submit" (click)="getValues()" class="btn btn-primary" style="align-items: center;">Log in</button>
-  <a href="/signup" >New to Zomato? create account</a>
+  <button type="submit" [disabled]="myform.invalid" (click)="getValues()" class="btn btn-primary" style="align-items: center;">Log in</button>
+  <a href="/sign-up" >New to Zomato? create account</a>
+
   <button mat-button mat-dialog-close>Cancel</button>
 </div>
 </form>

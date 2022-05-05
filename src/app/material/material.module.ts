@@ -18,7 +18,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule} from '@angular/material/dialog';
+
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -63,7 +64,9 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatChipsModule,
     MatStepperModule,
     MatDatepickerModule,
+   
     MatDialogModule,
+    
     MatDividerModule,
     MatExpansionModule,
     MatGridListModule,
@@ -91,6 +94,7 @@ import {OverlayModule} from '@angular/cdk/overlay';
     OverlayModule,
     PortalModule,
     ScrollingModule,
+   
   ]
 })
-export class MaterialModule {}
+ export class MaterialModule{}

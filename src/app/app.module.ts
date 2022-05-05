@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MaterialModule } from './materials/materials.module';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MaterialModule } from './material/material.module';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,9 +42,10 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    MatDialogModule,
+   
     MatTabsModule,
     MaterialModule,
+    MatDialogModule,
     HttpClientModule
   ],
   providers: [],
