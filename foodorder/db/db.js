@@ -4,7 +4,7 @@ let learn = function () {
     var connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: 'root',
+        password: 'password',
         database: 'food_order',
         insecureAuth: true
     });
