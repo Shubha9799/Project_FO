@@ -1,4 +1,4 @@
-const Connection = require('mysql/lib/Connection');
+const Connection = require('./../node_modules/mysql2/lib/connection');
 var mysql = require('mysql2');
 let learn = function () {
     var connection = mysql.createConnection({
