@@ -1,0 +1,142 @@
+{
+    "sub-home": {
+        "data": [
+            {
+                "_id": "61aa18860cf26833c8eca46c",
+                "spayee:resource": {
+                    "spayee:title": "Git as a DevOps tool",
+                    "spayee:publisher": "Learnlytica",
+                    "spayee:courseUrl": "Git-as-a-DevOps-tool",
+                    "spayee:courseType": "normal",
+                    "spayee:coverVersion": 1,
+                    "spayee:gstRate": 18,
+                    "spayee:mrp": 1599,
+                    "spayee:price": 1499,
+                    "spayee:pricingIncludingTaxes": true,
+                    "spayee:productVariants": [
+                        {
+                            "validityVariants": [
+                                {
+                                    "type": "ONE_TIME",
+                                    "validityType": "none",
+                                    "mrp": 1599,
+                                    "price": 1499,
+                                    "id": "v1-1599-1499",
+                                    "label": "Lifetime"
+                                }
+                            ],
+                            "id": "p1",
+                            "productType": "INR499"
+                        }
+                    ],
+                    "spayee:purchaseType": "cart",
+                    "spayee:language": "English",
+                    "spayee:shortDescription": ""
+                }
+            },
+            {
+                "_id": "61aa193f0cf272b4d2eef49a",
+                "spayee:resource": {
+                    "spayee:title": "DevOps Automation implementation",
+                    "spayee:publisher": "Learnlytica",
+                    "spayee:courseUrl": "DevOps---Implementing-DevOps-Automation",
+                    "spayee:courseType": "normal",
+                    "spayee:language": "English",
+                    "spayee:shortDescription": "",
+                    "spayee:coverVersion": 1,
+                    "spayee:gstRate": 18,
+                    "spayee:mrp": 1499,
+                    "spayee:price": 1399,
+                    "spayee:pricingIncludingTaxes": true,
+                    "spayee:productVariants": [
+                        {
+                            "validityVariants": [
+                                {
+                                    "type": "ONE_TIME",
+                                    "validityType": "none",
+                                    "mrp": 1499,
+                                    "price": 1399,
+                                    "id": "v1-1499-1399",
+                                    "label": "Lifetime"
+                                }
+                            ],
+                            "id": "p1",
+                            "productType": "INR499"
+                        }
+                    ],
+                    "spayee:purchaseType": "cart"
+                }
+            },
+            {
+                "_id": "61aaffed0cf2a71c5139fc7c",
+                "spayee:resource": {
+                    "spayee:title": "Chef as a DevOps tool",
+                    "spayee:publisher": "Learnlytica",
+                    "spayee:courseUrl": "Using-Chef-for-DevOps",
+                    "spayee:courseType": "normal",
+                    "spayee:coverVersion": 1,
+                    "spayee:language": "English",
+                    "spayee:shortDescription": "",
+                    "spayee:gstRate": 18,
+                    "spayee:mrp": 1499,
+                    "spayee:price": 1399,
+                    "spayee:pricingIncludingTaxes": true,
+                    "spayee:productVariants": [
+                        {
+                            "validityVariants": [
+                                {
+                                    "type": "ONE_TIME",
+                                    "validityType": "none",
+                                    "mrp": 1499,
+                                    "price": 1399,
+                                    "id": "v1-1499-1399",
+                                    "label": "Lifetime"
+                                }
+                            ],
+                            "id": "p1",
+                            "productType": "INR499"
+                        }
+                    ],
+                    "spayee:purchaseType": "cart"
+                }
+            },
+            {
+                "_id": "61ab04c30cf272041d78452f",
+                "spayee:resource": {
+                    "spayee:title": "Using Jenkins for DevOps",
+                    "spayee:publisher": "Learnlytica",
+                    "spayee:courseUrl": "Using-Jenkins-for-DevOps",
+                    "spayee:courseType": "normal",
+                    "spayee:coverVersion": 1,
+                    "spayee:language": "English",
+                    "spayee:shortDescription": "",
+                    "spayee:gstRate": 18,
+                    "spayee:mrp": 1599,
+                    "spayee:price": 1499,
+                    "spayee:pricingIncludingTaxes": true,
+                    "spayee:productVariants": [
+                        {
+                            "validityVariants": [
+                                {
+                                    "type": "ONE_TIME",
+                                    "validityType": "none",
+                                    "mrp": 1599,
+                                    "price": 1499,
+                                    "id": "v1-1599-1499",
+                                    "label": "Lifetime"
+                                }
+                            ],
+                            "id": "p1",
+                            "productType": "INR499"
+                        }
+                    ],
+                    "spayee:purchaseType": "cart"
+                }
+            }
+        ],
+        "total": 8,
+        "limit": 4,
+        "skip": 0
+    },
+    "response": true
+}
