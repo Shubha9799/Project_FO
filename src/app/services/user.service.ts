@@ -9,4 +9,8 @@ export class UserService {
   getProfile(){
     return this.myhttp.get('http://localhost:4200/api/users')
   }
+
+  getUserdetails(data:any){
+    return this.myhttp.post('http://localhost:4200/api/sign-up',data)
+  }
 }
