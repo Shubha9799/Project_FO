@@ -1,6 +1,6 @@
 <div class="border border-info m-2 p-3" style="background-color: lightgoldenrodyellow;">
   <h2 style="color: blue; text-align: center;">Login Form</h2>
-<form novalidate [formGroup]="myform">
+<form novalidate [formGroup]="myform" >
   <fieldset>
       <div class="form-group">
           <label>Name </label>
@@ -32,7 +32,7 @@
       </div>
 </div>
 <div class="col-12">
-  <button type="submit" [disabled]="myform.invalid" (click)="getValues()" class="btn btn-primary" style="align-items: center;">Log in</button>
+  <button type="submit" [disabled]="myform.invalid" (ngSubmit)="getValues()" class="btn btn-primary" style="align-items: center;">Log in</button>
   <a href="/sign-up" >New to Zomato? create account</a>
 
   <button mat-button mat-dialog-close>Cancel</button>

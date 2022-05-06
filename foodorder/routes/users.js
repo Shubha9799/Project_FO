@@ -122,18 +122,26 @@ router.get('/order-now', function (req, res, next) {
 });
 
 //delete operation
-router.delete('/delete-order/:Name',(req,res,next)=>{
-  let Name=req.params.Name;
-  let deleteq='DELETE FROM food_order.order_now WHERE `(Name=${Name})`';
-  dbConnection.query(deleteq,(error,result,fields)=>{
-    if(error){
-      res.send(error)
+router.delete('/delete-user/:Name', (req, res, next) => {
+  let Name = req.params.Name;
+  let deleletq = `DELETE FROM food_order.order_now WHERE Name = '${Name}'`;
+
+  dbConnection.query(deleletq, (error, result, fields) => {
+    if (error) {
+      res.send(error);
       throw error;
-    }else{
-      res.send(`${Name} has been deleted`)
+    } else {
+      console.log(result);
+      if (result.affectedRows) {
+        res.send(`${Name} has been delete`)
+      } else {
+        res.send(`Unable to delete user, Not Found`);
+      }
     }
-  })
+  });
+
 });
+
 
 
 //booknow post and get method
