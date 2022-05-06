@@ -23,8 +23,9 @@ export class LoginComponent implements OnInit {
   getValues() {
     console.log(this.myform);
   }
-  onSubmit(){
-    this.submitted=true;
+  onClickSubmit(data: any) {
+     console.log(data);
+  }
   }
 
-}
+

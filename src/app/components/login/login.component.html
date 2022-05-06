@@ -1,6 +1,6 @@
 <div class="border border-info m-2 p-3" style="background-color: lightgoldenrodyellow;">
   <h2 style="color: blue; text-align: center;">Login Form</h2>
-<form novalidate [formGroup]="myform" (ngSubmit)="onSubmit()" >
+<form novalidate [formGroup]="myform" (ngSubmit)="onClickSubmit(myform.value)" >
   <fieldset>
       <div class="form-group">
           <label>Name </label>

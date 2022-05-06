@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
     email:new FormControl('',[Validators.email,Validators.required,Validators.pattern(this.emailRegEx)]),
     city:new FormControl('',Validators.required),
     Address:new FormControl('',Validators.required),
+    state:new FormControl('',Validators.required),
     zip:new FormControl('',Validators.required)
 
     
@@ -33,12 +34,22 @@ export class SignUpComponent implements OnInit {
       Name: myform1.value.name,
       phone:myform1.value.phone,
       email:myform1.value.email,
-      Address:myform1.value.Address,
+      Address:myform1.value.address,
       city:myform1.value.city,
       state:myform1.value.state,
       zip:myform1.value.zip
     };
-    this.myhttp.post('/api/users/sign-up',data).subscribe((data: any)=>{console.log(data);})
+    
+    this.myhttp.post('/api/users/sign-up', data, { responseType: 'text' })
+    .subscribe(data => {
+      console.log(data);
+      myform1.form.reset();
+    });
+  }
+
+  onClickSubmit(data: any) {
+     console.log(data);
   }
 
 }
+
