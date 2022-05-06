@@ -26,4 +26,9 @@ CREATE TABLE IF NOT EXISTS `book_now` (
   `noa` numeric
 );
 
+CREATE TABLE IF NOT EXISTS `login` (
+ `name` varchar(50) NOT NULL,
+ `phone` varchar(10) NOT NULL
+)
+
 

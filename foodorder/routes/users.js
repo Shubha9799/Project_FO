@@ -8,8 +8,8 @@ router.get('/', function(req, res, next) {
 });
 
 // Signup database post and get method
-router.get('/sign-up', function (req, res, next) {
-  dbConnection.query('SELECT * FROM food_order.sign_up', (error,results,fields) => {
+router.get('/login', function (req, res, next) {
+  dbConnection.query('SELECT * FROM food_order.login', (error,results,fields) => {
     if(error) throw error;
     res.send(results);
 
@@ -18,8 +18,30 @@ router.get('/sign-up', function (req, res, next) {
 });
 
 //post methods-login
+router.post('/login', (req, res, next) => {
+  console.log(req.body)
+  let {
+   name,
+   phone
+  } = req.body
+
+  let insertcommand = `INSERT INTO food_order.login(name,phone)
+   VALUES ('${name}','${phone}')`;
+
+  dbConnection.query(insertcommand, (err, result) => {
+
+    if (err) throw err;
+
+    res.send("detailes are fetched from postman api detailes are inserted");
+
+  });
+
+})
+
+
 
 router.post('/sign-up', (req, res, next) => {
+  console.log(req.body)
   let {
    Name,
    phone,
@@ -65,7 +87,7 @@ router.get('/order-now', function (req, res, next) {
   // res.send('respond with a resource');
 });
 
-//post methods-login
+//post methods--->order-now
 
 router.post('/order-now', (req, res, next) => {
   let {
@@ -98,6 +120,22 @@ router.get('/order-now', function (req, res, next) {
   //res.send('respond with a resource');
 
 });
+
+//delete operation
+router.delete('/delete-order/:Name',(req,res,next)=>{
+  let Name=req.params.Name;
+  let deleteq='DELETE FROM food_order.order_now WHERE `(Name=${Name})`';
+  dbConnection.query(deleteq,(error,result,fields)=>{
+    if(error){
+      res.send(error)
+      throw error;
+    }else{
+      res.send(`${Name} has been deleted`)
+    }
+  })
+});
+
+
 //booknow post and get method
 router.get('/book-now', function (req, res, next) {
   dbConnection.query('SELECT * FROM food_order.book_now', (error,results,fields) => {
