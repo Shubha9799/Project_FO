@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     phone: new FormControl('',Validators.required)
     
   });
+  submitted: boolean | undefined;
 
   constructor() { }
 
@@ -21,6 +22,9 @@ export class LoginComponent implements OnInit {
   }
   getValues() {
     console.log(this.myform);
+  }
+  onSubmit(){
+    this.submitted=true;
   }
 
 }
