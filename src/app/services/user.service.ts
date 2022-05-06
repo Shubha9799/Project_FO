@@ -11,6 +11,6 @@ export class UserService {
   }
 
   getUserdetails(data:any){
-    return this.myhttp.post('http://localhost:4200/api/sign-up',data)
+    return this.myhttp.post('http://localhost:4200/api/users/sign-up',data)
   }
 }
