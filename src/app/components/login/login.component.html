@@ -32,7 +32,7 @@
       </div>
 </div>
 <div class="col-12">
-  <button type="submit" [disabled]="myform.invalid" (onClick)="getValues()" class="btn btn-primary" style="align-items: center;">Log in</button>
+  <button type="submit" mat-button mat-dialog-close [routerLink]="['/listing']" [disabled]="myform.invalid" (onClick)="getValues()" class="btn btn-primary" style="align-items: center;">Log in</button>
   <a href="/sign-up" >New to Zomato? create account</a>
 
   <button mat-button mat-dialog-close>Cancel</button>

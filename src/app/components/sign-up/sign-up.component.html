@@ -55,7 +55,7 @@
   </div>
   </div>
   <div class="col-12 ">
-      <button type="submit" (click)="getValues" class="btn btn-primary" style="align-items: center;">Sign up</button>
+      <button type="submit" mat-button mat-dialog-close [routerLink]="['/maincontainer']"(click)="getValues" class="btn btn-primary" style="align-items: center;">Sign up</button>
       <a href="/login" >Already have an account? Login</a>
       <button mat-button mat-dialog-close>Cancel</button>
   </div>
