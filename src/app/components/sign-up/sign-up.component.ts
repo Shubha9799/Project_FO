@@ -29,7 +29,7 @@ export class SignUpComponent implements OnInit {
   getValues(myform1:any)
   {
     console.log(this.myform1);
-
+    
     let data={
       Name: myform1.value.name,
       phone:myform1.value.phone,
@@ -46,6 +46,7 @@ export class SignUpComponent implements OnInit {
       myform1.form.reset();
     });
   }
+
 
   onClickSubmit(data: any) {
      console.log(data);

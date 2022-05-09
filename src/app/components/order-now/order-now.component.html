@@ -1,10 +1,10 @@
 <div class="container">
     <h2 style="text-align:center">Your Order</h2>
     <br>
-    <form [formGroup]="myform2" class="row g-3" style="border: 1px solid grey;">
+    <form [formGroup]="myform2" #f="ngForm" class="row g-3" style="border: 1px solid grey;">
     <div class="col-md-6 form-group">
       <label for="inputEmail4" class="form-label">Name</label>
-      <input type="text" formControlNmame="name" class="form-control" id="inputEmail4" required>
+      <input type="text" formControlNmame="name" ngModel class="form-control" id="inputEmail4" required>
       <div class="text-danger" *ngIf=" myform2.controls['name'].touched && myform2.controls['name'].invalid">
         *Please enter your name
     </div>
