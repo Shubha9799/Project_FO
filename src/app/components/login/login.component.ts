@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms'
 
@@ -16,16 +17,29 @@ export class LoginComponent implements OnInit {
   });
   submitted: boolean | undefined;
 
-  constructor() { }
+  constructor(private myhttp:HttpClient) { }
 
   ngOnInit(): void {
   }
-  getValues() {
-    console.log(this.myform);
+  getValues(formRef:any) {
+    
+    let data={
+      name:formRef.value.name,
+      phone:formRef.value.phone
+
+    };
+    this.myhttp.post('/api/users/login', data, { responseType: 'text' })
+    .subscribe(data => {
+      console.log(data);
+      this.myform.reset();
+    });
   }
+
+
   onClickSubmit(data: any) {
      console.log(data);
   }
-  }
+}
+  
 
 
