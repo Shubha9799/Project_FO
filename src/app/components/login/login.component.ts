@@ -37,6 +37,7 @@ export class LoginComponent implements OnInit {
 
 
   onClickSubmit(data: any) {
+    alert("Logged in successfully")
      console.log(data);
   }
 }

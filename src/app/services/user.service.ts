@@ -10,7 +10,7 @@ export class UserService {
     return this.myhttp.get('http://localhost:4200/api/users')
   }
 
-  getUserdetails(data:any){
-    return this.myhttp.post('http://localhost:4200/api/users/sign-up',data)
+  getUserdetails(){
+    return this.myhttp.get('http://localhost:4200/api/users/sign-up')
   }
 }
