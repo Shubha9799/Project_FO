@@ -16,22 +16,26 @@ export class LoginComponent implements OnInit {
     
   });
   submitted: boolean | undefined;
+  isUserAdded: boolean=false;
 
   constructor(private myhttp:HttpClient) { }
 
   ngOnInit(): void {
   }
-  getValues(formRef:any) {
-    
+  getValues(myform:any) {
+    console.log(myform)
     let data={
-      name:formRef.value.name,
-      phone:formRef.value.phone
+      name:myform.value.name,
+      phone:myform.value.phone
 
     };
-    this.myhttp.post('/api/users/login', data, { responseType: 'text' })
+    this.myhttp.post('/api/users/login', data)
     .subscribe(data => {
       console.log(data);
-      this.myform.reset();
+      this.isUserAdded = true;
+     
+    
+      myform.form.reset();
     });
   }
 

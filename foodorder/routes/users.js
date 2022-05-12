@@ -20,6 +20,40 @@ router.get('/', function (req, res, next) {
 
 //post methods-login
 
+router.post('/login', (req, res, next) => {
+  console.log(req.body)
+  let {
+   name,
+   phone,
+    
+  } = req.body
+
+  let insertcommand = `INSERT INTO login(name,phone)
+   VALUES ('${name}','${phone}')`;
+
+  dbConnection.query(insertcommand, (err, result) => {
+
+    if (err) throw err;
+
+    res.send("detailes are fetched from postman api detailes are inserted");
+
+  });
+
+})
+router.get('/login', function (req, res, next) {
+
+  dbConnection.query('SELECT * FROM login', (error, results, fields) => {
+    if (error) throw error;
+    res.send(results);
+
+  });
+
+  //res.send('respond with a resource');
+
+});
+
+
+
 router.post('/sign-up', (req, res, next) => {
   console.log(req.body)
   let {
