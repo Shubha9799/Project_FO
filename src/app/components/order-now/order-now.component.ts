@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl ,FormGroup, Validators} from '@angular/forms';
 
@@ -10,18 +11,35 @@ import { FormControl ,FormGroup, Validators} from '@angular/forms';
 export class OrderNowComponent implements OnInit {
   myform2 : FormGroup = new FormGroup(
     {
-    name: new FormControl('',Validators.required), 
-    address:new FormControl('',Validators.required), 
+    Name: new FormControl('',Validators.required), 
+    Address:new FormControl('',Validators.required), 
     phone: new FormControl('',Validators.required)
   });
-  constructor() { }
+  isUserAdded: boolean=false;
+  constructor(private myhttp:HttpClient) { }
 
   ngOnInit(): void {
   }
-  getValues()
+  getValues(myform2:any)
   {
     console.log(this.myform2);
+    
+    alert("Order Placed")
+    let data = {
+      Name: myform2.value.Name,
+      Address: myform2.value.Address,
+      phone:myform2.value.phone
+    };
+    console.log(myform2)
+    this.myhttp.post('/api/users/order-now', data)
+      .subscribe(data => {
+        console.log(data);
+        this.isUserAdded = true;
+        myform2.form.reset();
+
+      });
+  }
   }
 
 
-}
+
