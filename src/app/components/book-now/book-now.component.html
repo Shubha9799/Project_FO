@@ -1,74 +1,71 @@
-<div class="center">
-<form  method="post" action="//submit.form" onSubmit="validateForm();" style="border: 1px solid grey; padding:50px">
-    <div style="max-width: 400px;">
-    </div>
-    <div style="padding-bottom: 18px;font-size : 24px; color: blue;">Table Reservation</div>
-    <div style="padding-bottom: 18px;font-size : 18px; color: blue;">We would be glad to reserve a table for you at our restaurant!</div>
-    <div style="padding-bottom: 18px;">Name<span style="color: red;"> *</span><br/>
-    <input type="text" id="data_3" formControlName="data_3" style="max-width : 400px;" class="form-control"/>
-    </div>
-    <div style="padding-bottom: 18px;">Phone<br/>
-    <input type="text" id="data_4" formControlName="data_4" style="max-width : 400px;" class="form-control"/>
-    </div>
-    <div style="padding-bottom: 18px;">Email<br/>
-    <input type="text" id="data_5" formControlName="data_5" style="max-width : 400px;" class="form-control"/>
-    </div>
-    <div style="padding-bottom: 18px;">Date<span style="color: red;"> *</span><br/>
-    <input type="date" id="data_6" formControlName="data_6" style="max-width : 250px;" class="form-control"/>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/pikaday.min.js" type="text/javascript"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.4.0/css/pikaday.min.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript">new Pikaday({ field: document.getElementById('data_6') });</script>
-    <div style="padding-bottom: 18px;">Time<span style="color: red;"> *</span><br/>
-    <input type="time" id="data_7" formControlName="data_7" style="max-width : 250px;" class="form-control"/>
-    </div>
-    <div style="padding-bottom: 18px;">Number of Attendees<span style="color: red;"> *</span><br/>
-    <select id="data_8" formControlName="data_8" style="max-width : 250px;" class="form-control"><option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-    <option>6</option>
-    <option>7</option>
-    <option>8</option>
-    <option>9</option>
-    <option>10</option>
-    <option>10+ (Specify in Comments)</option>
-    </select>
-    </div>
-    <div style="padding-bottom: 18px;">Comments / Additional Requests<br/>
-    <textarea id="data_9" false formControlName="data_9" style="max-width : 400px;" rows="6" class="form-control"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary m-3" (click)="getValues()" style="align-items: center;" [routerLink]="['/confirm-order']" mat-tab-group mat-align-tabs= 'start'>Submit</button>
-    <div>
-    <script src="https://www.100forms.com/js/FORMKEY:UYB6UHRNULK5/SEND:my@email.com" type="text/javascript"></script>
+<div class="container">
+    <h2 style="text-align:center;color: blue;text-decoration: underline;">Book A Table</h2>
+    <br>
+    <form [formGroup]="myform3" class="row g-3" style="border: 1px solid rgb(76, 87, 240);padding: 3px;">
+        <h3 style="color: orange;"><b>We are glad to have you at our restaurant!!!</b></h3>
+      <div class="col-md-6 form-group">
+        <label for="inputEmail4" class="form-label"><b>Name</b></label>
+        <input type="text" formControlName="name" class="form-control" id="inputEmail4" required>
+        <div class="text-danger" *ngIf=" myform3.controls['name'].touched && myform3.controls['name'].invalid">
+          *Please enter your name
+        </div>
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="inputPassword4" class="form-label"><b>Phone number</b></label>
+        <input type="text" formControlName="phone" class="form-control" id="inputPassword4" required>
+        <div class="text-danger" *ngIf=" myform3.controls['phone'].touched && myform3.controls['phone'].invalid">
+          *Please enter your phone number
+        </div>
+      </div>
+      <div class=" form-group">
+        <label for="inputAddress" class="form-label"><b>Email</b></label>
+        <input type="email" formControlName="email" class="form-control" id="inputAddress" placeholder="abc@gmail.com"
+          required>
+        <div class="text-danger" *ngIf=" myform3.controls['email'].touched && myform3.controls['email'].invalid">
+          *Enter valid email id
+        </div>
+      </div>
+      <div class="col-12 form-group">
+        <label for="inputAddress2" class="form-label"><b>Date</b></label>
+        <input type="date" formControlName="date"  placeholder="yyyy-mm-dd" value="" min="1997-01-01" max="2030-12-31" class="form-control" id="inputAddress2"
+           required>
+        <div class="text-danger" *ngIf=" myform3.controls['date'].touched && myform3.controls['date'].invalid">
+          *Enter the date
+        </div>
+      </div>
+      <div class="col-12 form-group">
+        <label for="inputAddress2" class="form-label"><b>Time</b></label>
+        <input type="time" formControlName="time" class="form-control" id="inputAddress2"
+           required>
+        <div class="text-danger" *ngIf=" myform3.controls['time'].touched && myform3.controls['time'].invalid">
+          *Select the time
+        </div>
+      </div>
+    
+      <div class="col-12 form-group">
+        <label for="inputState" class="form-label"><b>No. of Attendees</b></label>
+        <select formControlName="noa" id="inputState" class="form-select">
+          <option selected>Choose...</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>6</option>
+          <option>8</option>
+          <option>more..</option>
+        </select>
+      </div>
+      <div class="col-12 form-group">
+        <label for="inputAddress2" class="form-label"><b>Comments/Additional requests</b></label>
+        <input type="textarea"  class="form-control" id="inputAddress2"
+          >
+        
+      </div>
+      
+      <div class="col-12 ">
+        <button type="submit" (click)="getValues(myform3)" class="btn btn-primary m-3" style="align-items: center;" [routerLink]="['/confirm-order']" mat-tab-group mat-align-tabs= 'start'>Book Now</button>
+        <button mat-button mat-dialog-close>Cancel</button>
     </div>
     </form>
     <br>
-    <script type="text/javascript">
-    function validateForm() {
-    if (isEmpty(document.getElementById('data_3').value.trim())) {
-    alert('Name is required!');
-    return false;
-    }
-    if (!validateEmail(document.getElementById('data_5').value.trim())) {
-    alert('Email must be a valid email address!');
-    return false;
-    }
-    if (isEmpty(document.getElementById('data_6').value.trim())) {
-    alert('Date is required!');
-    return false;
-    }
-    if (isEmpty(document.getElementById('data_7').value.trim())) {
-    alert('Time is required!');
-    return false;
-    }
-    return true;
-    }
-    function isEmpty(str) { return (str.length === 0 || !str.trim()); }
-    function validateEmail(email) {
-    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,15}(?:\.[a-z]{2})?)$/i;
-    return isEmpty(email) || re.test(email);
-    }
-    </script>
-</div>
+  </div>
