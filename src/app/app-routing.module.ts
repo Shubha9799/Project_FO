@@ -9,6 +9,7 @@ import { ListingComponent } from './components/listing/listing.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainContainerComponent } from './components/main-container/main-container.component';
 import { OrderNowComponent } from './components/order-now/order-now.component';
+import { ProPageComponent } from './components/pro-page/pro-page.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   {path: 'confirm-order', component:ConfirmOrderComponent},
   {path : 'book-now', component: BookNowComponent},
   {path: 'submit', component:ListingComponent},
-  {path: 'sign-up',component:MainContainerComponent}
+  {path: 'sign-up',component:MainContainerComponent},
+  {path: 'pro-page',component:ProPageComponent}
 ];
 
 @NgModule({
