@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book-now.component.css']
 })
 export class BookNowComponent implements OnInit {
+ 
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  getValues(){
+    alert("Booked your table!!")
   }
 
 }
