@@ -1,41 +1,63 @@
 <div class="border border-info m-2 p-3" style="background-color: lightgoldenrodyellow;">
   <h2 style="color: blue; text-align: center;">Login Form</h2>
-<form novalidate [formGroup]="myform" (ngSubmit)="onClickSubmit(myform.value)" >
-  <fieldset>
+  <form novalidate [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mb-3">
+      <br>
+      <label for="name"><b>Name</b></label>
+      <input type="text" formControlName="name" class="form-control" id="" placeholder="Enter your name here"
+        [ngClass]="{'is-invalid': submitted && f['name'].errors}" />
+      <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+        <div class="text-danger" *ngIf="f['name'].errors['required']">Enter your name here</div>
+      </div>
+    </div>
+    <br>
+    <div class=" form-group mb-3">
+      <label for="phone"><b>Phone number</b></label>
+      <input type="phone" class="form-control" formControlName="phone" placeholder="phone number" minlength="10"
+        [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }" required>
+      <div *ngIf="submitted && f['phone'].errors" class="invalid-feedback">
+
+        <div class="text-danger" *ngIf="f['phone'].errors['required']">Phone is required</div>
+      </div>
+    </div>
+    <!-- <fieldset>
       <div class="form-group">
-          <label>Name </label>
-          <input formControlName="name" type="text" class="form-control">
-          <div class="text-danger" *ngIf=" myform.controls['name'].touched && myform.controls['name'].invalid">
-            *Please enter your name
+        <label>Name </label>
+        <input formControlName="name" type="text" class="form-control" 
+        [ngClass]="{'is-invalid': submitted && f['name'].errors}" />
+        <div class="text-danger" *ngIf=" login.controls['name'].touched && myform.controls['name'].invalid">
+          *Please enter your name
         </div>
       </div>
-      
-  </fieldset>
- 
-  <div class="form-group">
+    </fieldset>
+    <div class="form-group">
       <label>Phone number</label>
-      <input formControlName="phone" type="text" class="form-control">
+      <input formControlName="phone" type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['phone'].errors }">
       <div class="text-danger" *ngIf=" myform.controls['phone'].touched && myform.controls['phone'].invalid">
         *Please enter your name
+      </div>
     </div>
-  </div>
- 
-
- {{myform.value|json}}
-  
-
-
-<div class="col-12">
-    <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn btn-outline-primary" type="button"><i class="bi bi-envelope-fill"></i>Continue with gmail</button>
+    {{myform.value|json}}
+    <div class="col-12">
+      <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-outline-primary" type="button"><i class="bi bi-envelope-fill"></i>Continue with
+          gmail</button>
         <button class="btn btn-outline-primary" type="button"><i class="bi bi-google"></i>Continue with Google</button>
       </div>
-</div>
-<div class="col-12">
-  <button type="submit" mat-button mat-dialog-close [routerLink]="['/listing']" [disabled]="myform.invalid" (onClick)="getValues(myform)" class="btn btn-primary" style="align-items: center;">Log in</button>
-  <a href="/sign-up" >New to Zomato? create account</a>
-
-  <button mat-button mat-dialog-close>Cancel</button>
-</div>
-</form>
+    </div> -->
+    <!-- <div class="col-12">
+      <button type="submit" (click)="getValues(myform)" class="btn btn-primary" style="align-items: center;">Log
+        in</button>
+      <a href="/signup">New to Zomato? create account</a>
+      <button mat-button mat-dialog-close>Cancel</button>
+    </div> -->
+    <!-- div class="form-group"> -->
+    <div class="col-12">
+      <button type="submit" mat-button mat-dialog-close [routerLink]="['/listing']" [disabled]="loginForm.invalid"  class="btn btn-primary" style="align-items: center;">Log in</button>
+      <a href="/sign-up" >New to Zomato? create account</a>
+    
+      <button mat-button mat-dialog-close>Cancel</button>
+    </div>
+    <div *ngIf="userMessage" class="form-control is-invalid"> {{userMessage}}</div>
+  </form>
 </div>

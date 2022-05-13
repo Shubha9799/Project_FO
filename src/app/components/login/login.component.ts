@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms'
-
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,42 +9,70 @@ import { FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  myform : FormGroup = new FormGroup(
-    {
-    name: new FormControl('',Validators.required),  
-    phone: new FormControl('',Validators.required)
-    
-  });
-  submitted: boolean | undefined;
-  isUserAdded: boolean=false;
+  loginForm!: FormGroup;
+  loading = false;
+  submitted = false;
+  returnUrl?: string;
 
-  constructor(private myhttp:HttpClient) { }
+  userMessage: string = '';
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private myuser: UserService
+
+  ) { }
+
 
   ngOnInit(): void {
-  }
-  getValues(myform:any) {
-    console.log(myform)
-    let data={
-      name:myform.value.name,
-      phone:myform.value.phone
-
-    };
-    this.myhttp.post('/api/users/login', data)
-    .subscribe(data => {
-      console.log(data);
-      this.isUserAdded = true;
-     
-    
-      myform.form.reset();
+    this.loginForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      phone: ['', Validators.required]
     });
+
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
+  // convenience getter for easy access to form fields
+  get f() { return this.loginForm.controls; }
 
-  onClickSubmit(data: any) {
-    alert("Logged in successfully")
-     console.log(data);
+  onSubmit() {
+    this.submitted = true;
+    alert("Logged in successfully!!!")
+
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
+
+
+    this.myuser.loginUser(this.f['name'].value, this.f['phone'].value)
+      .subscribe(
+        {
+          next: (data: any) => {
+            this.loading = true;
+            console.log(data, this.f)
+
+            if (data.length) {
+              // sessionStorage.setItem('loggedUser', JSON.stringify(data[0]));
+              this.router.navigate(['/listing']);
+            } else {
+              this.userMessage = 'Login user not found, please enter correct name and phone number';
+            }
+
+          },
+          error: (e: any) => {
+            this.loading = false;
+            console.error(e)
+          }
+        }
+      )
   }
+
 }
-  
 
 

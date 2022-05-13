@@ -176,9 +176,37 @@ router.get('/book-now', function (req, res, next) {
     res.send(results);
 
   });
+});
 
   //res.send('respond with a resource');
+  //login and signup page connection
+
+router.post('/login', (req, res, next) => {
+  let {
+    name,
+    phone
+  } = req.body; // destructing of object property 
+
+  let userFound = `select * from sign_up  WHERE name = '${name}' and phone= '${phone}'`;
+
+  dbConnection.query(userFound, (error, result, fields) => {
+
+    if (error) {
+      res.send(error);
+    } else {
+      if (result.length) {
+        // res.send(`{message: 'user found', usercount: 1}`);
+        res.json(result)
+      } else {
+        // res.send(`{message: 'user no found', usercount: 0}`);
+        res.json({ message: 'user not found', usercount: 0 })
+      }
+    }
+
+  });
 
 });
+
+
 
 module.exports = router;

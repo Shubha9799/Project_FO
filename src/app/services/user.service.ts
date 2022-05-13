@@ -9,8 +9,14 @@ export class UserService {
   getProfile(){
     return this.myhttp.get('http://localhost:4200/api/users')
   }
-
-  getUserdetails(){
-    return this.myhttp.get('http://localhost:4200/api/users/sign-up')
+  loginUser(name: string, phone: string) {
+    //rest api call to express
+    let loginData = {
+      // fname:fname,
+      name: name ,
+      phone: phone
+    };
+  
+    return this.myhttp.post('api/users/login', loginData);
   }
 }
