@@ -1,30 +1,31 @@
 <div class="container">
-    <h2 style="text-align:center">Your Order</h2>
+    <h1 style="text-align:center;color: rgb(33, 12, 53);"><b>Your Order</b></h1>
     <br>
     <form novalidtae [formGroup]="myform2" #f="ngForm" class="row g-3" style="border: 1px solid grey;">
+      <img src="https://img.freepik.com/free-vector/food-delivery-service-fast-food-delivery-scooter-delivery-service-illustration_67394-867.jpg?w=2000" width="400" height="350">
     <div class="col-md-6 form-group">
-      <label for="inputEmail4" class="form-label">Name</label>
+      <label for="inputEmail4" class="form-label"><b>Name</b></label>
       <input type="text" formControlName="Name" ngModel class="form-control" id="inputEmail4" required>
       <div class="text-danger" *ngIf=" myform2.controls['Name'].touched && myform2.controls['Name'].invalid">
         *Please enter your name
     </div>
     </div>
     <div class="col-12 form-group">
-        <label for="inputAddress2" class="form-label">Address</label>
+        <label for="inputAddress2" class="form-label"><b>Address</b></label>
         <input type="text" formControlName="Address" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" required>
         <div class="text-danger" *ngIf=" myform2.controls['Address'].touched && myform2.controls['Address'].invalid">
           *Enter the address
       </div>
       </div>
     <div class="col-md-6 form-group">
-      <label for="inputPassword4" class="form-label">Phone number</label>
+      <label for="inputPassword4" class="form-label"><b>Phone number</b></label>
       <input type="text" formControlName="phone" class="form-control" id="inputPassword4" required>
       <div class="text-danger" *ngIf=" myform2.controls['phone'].touched && myform2.controls['phone'].invalid">
         *Please enter your phone number
     </div>
     </div>
     <div >
-      <label class="form-label">Amount: {{orderamt}}</label>
+      <label class="form-label" style="font-size:medium ;"><b>Amount: {{orderamt}}</b></label>
       
       
     </div>
