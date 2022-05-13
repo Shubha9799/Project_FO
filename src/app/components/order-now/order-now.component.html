@@ -23,6 +23,11 @@
         *Please enter your phone number
     </div>
     </div>
+    <div >
+      <label class="form-label">Amount: {{orderamt}}</label>
+      
+      
+    </div>
     <div class="col-12 ">
         <button type="submit" (click)="getValues(myform2)" class="btn btn-primary m-3" style="align-items: center;" [routerLink]="['/confirm-order']" mat-tab-group mat-align-tabs= 'start'>Confirm Order</button>
         <button mat-button mat-dialog-close>Cancel</button>

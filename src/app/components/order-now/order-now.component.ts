@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl ,FormGroup, Validators} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,6 +10,7 @@ import { FormControl ,FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./order-now.component.css']
 })
 export class OrderNowComponent implements OnInit {
+  orderamt:number=0;
   myform2 : FormGroup = new FormGroup(
     {
     Name: new FormControl('',Validators.required), 
@@ -16,9 +18,13 @@ export class OrderNowComponent implements OnInit {
     phone: new FormControl('',Validators.required)
   });
   isUserAdded: boolean=false;
-  constructor(private myhttp:HttpClient) { }
+  constructor(private myhttp:HttpClient, private myactivatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.myactivatedRoute.queryParams.subscribe((param)=>{
+      console.log(param['amount'])
+      this.orderamt=param['amount']
+    })
   }
   getValues(myform2:any)
   {
