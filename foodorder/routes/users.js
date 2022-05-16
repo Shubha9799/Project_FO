@@ -207,6 +207,29 @@ router.post('/login', (req, res, next) => {
 
 });
 
+//delete operation
+
+router.delete('/delete-user/:phone', (req, res, next) => {
+  let phone = req.params.phone;
+  let deleletq = `DELETE FROM food_order.sign_up WHERE phone ='${phone}'`;
+
+  dbConnection.query(deleletq, (error, result, fields) => {
+    if (error) {
+      res.send(error);
+      throw error;
+    } else {
+      console.log(result);
+      if (result.affectedRows) {
+        res.send(`${phone} has been delete`)
+      } else {
+        res.send(`Unable to delete user, Not Found`);
+      }
+    }
+  });
+
+});
+
+
 
 
 module.exports = router;

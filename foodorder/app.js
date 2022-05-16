@@ -19,5 +19,6 @@ app.use('/api/users', usersRouter);
 app.use('/api/users/sign-up',usersRouter);
 app.use('/api/users/order-now',usersRouter);
 app.use('/api/users/book-now',usersRouter);
+app.use('/api/users/delete-user/',usersRouter);
 
 module.exports = app;
