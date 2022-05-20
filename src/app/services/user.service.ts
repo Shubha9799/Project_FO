@@ -19,4 +19,9 @@ export class UserService {
   
     return this.myhttp.post('api/users/login', loginData);
   }
+
+
+  deleteUser(phone:any) {
+    return this.myhttp.delete(`api/users/delete-user/${phone}`);
+  }
 }
