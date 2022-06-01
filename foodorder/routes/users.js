@@ -222,7 +222,7 @@ router.delete('/delete-user/:phone', (req, res, next) => {
     } else {
       console.log(result);
       if (result.affectedRows) {
-        res.send(`${phone}} has been delete`)
+        res.send(`${phone} has been delete`)
       } else {
         res.send(`Unable to delete user, Not Found`);
       }
